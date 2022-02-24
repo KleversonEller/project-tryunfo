@@ -20,6 +20,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.saveBtn = this.saveBtn.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.hasTrunfo = this.hasTrunfo.bind(this);
   }
 
   onInputChange(event) {
@@ -52,7 +53,6 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
   }
@@ -81,6 +81,11 @@ class App extends React.Component {
     }
   }
 
+  hasTrunfo() {
+    const { state } = this;
+    return state.deck.some(({ trunfo }) => trunfo === true);
+  }
+
   render() {
     const { state } = this;
     return (
@@ -98,7 +103,7 @@ class App extends React.Component {
             cardImage={ state.cardImage }
             cardRare={ state.cardRare }
             cardTrunfo={ state.cardTrunfo }
-            // hasTrunfo={}
+            hasTrunfo={ this.hasTrunfo() }
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
