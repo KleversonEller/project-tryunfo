@@ -17,6 +17,7 @@ class Form extends React.Component {
             id="name"
             type="text"
             value={ cardName }
+            name="cardName"
           />
         </label>
         <label htmlFor="descricao">
@@ -27,6 +28,7 @@ class Form extends React.Component {
             id="descricao"
             type="text"
             value={ cardDescription }
+            name="cardDescription"
           />
         </label>
         <label htmlFor="atrib-1">
@@ -37,6 +39,7 @@ class Form extends React.Component {
             id="atrib-1"
             type="number"
             value={ cardAttr1 }
+            name="cardAttr1"
           />
         </label>
         <label htmlFor="atrib-2">
@@ -47,6 +50,7 @@ class Form extends React.Component {
             id="atrib-2"
             type="number"
             value={ cardAttr2 }
+            name="cardAttr2"
           />
         </label>
         <label htmlFor="atrib-3">
@@ -57,6 +61,7 @@ class Form extends React.Component {
             id="atrib-3"
             type="number"
             value={ cardAttr3 }
+            name="cardAttr3"
           />
         </label>
         <label htmlFor="url-img">
@@ -67,6 +72,7 @@ class Form extends React.Component {
             id="url-img"
             type="text"
             value={ cardImage }
+            name="cardImage"
           />
         </label>
         <label htmlFor="raridade">
@@ -74,7 +80,7 @@ class Form extends React.Component {
           <select
             onChange={ onInputChange }
             data-testid="rare-input"
-            name="raridade"
+            name="cardRare"
             id="raridade"
             value={ cardRare }
           >
@@ -91,6 +97,7 @@ class Form extends React.Component {
             id="sup-try"
             type="checkbox"
             checked={ cardTrunfo }
+            name="cardTrunfo"
           />
         </label>
         <button
