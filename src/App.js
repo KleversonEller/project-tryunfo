@@ -22,6 +22,7 @@ class App extends React.Component {
     this.saveBtn = this.saveBtn.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.hasTrunfo = this.hasTrunfo.bind(this);
+    this.delet = this.delet.bind(this);
   }
 
   onInputChange(event) {
@@ -87,6 +88,11 @@ class App extends React.Component {
     return state.deck.some(({ trunfo }) => trunfo === true);
   }
 
+  delet(event) {
+    const { deck } = this.state;
+    this.setState({ deck: deck.filter(({ name }) => name !== event.target.name) });
+  }
+
   render() {
     const { state } = this;
     return (
@@ -119,7 +125,7 @@ class App extends React.Component {
             cardRare={ state.cardRare }
             cardTrunfo={ state.cardTrunfo }
           />
-          <CardList list={ state.deck } />
+          <CardList list={ state.deck } delet={ this.delet } />
         </div>
       </>
     );

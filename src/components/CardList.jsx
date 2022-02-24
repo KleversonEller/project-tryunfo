@@ -4,20 +4,31 @@ import Card from './Card';
 
 class CardList extends React.Component {
   render() {
-    const { list } = this.props;
+    const { list, delet } = this.props;
     return (
       <div>
-        {list.map((objeto) => (<Card
-          key={ objeto.name }
-          cardName={ objeto.name }
-          cardDescription={ objeto.description }
-          cardAttr1={ objeto.attr1 }
-          cardAttr2={ objeto.attr2 }
-          cardAttr3={ objeto.attr3 }
-          cardImage={ objeto.image }
-          cardRare={ objeto.rare }
-          cardTrunfo={ objeto.trunfo }
-        />))}
+        {list.map((objeto) => (
+          <div key={ objeto.name }>
+            <Card
+              cardName={ objeto.name }
+              cardDescription={ objeto.description }
+              cardAttr1={ objeto.attr1 }
+              cardAttr2={ objeto.attr2 }
+              cardAttr3={ objeto.attr3 }
+              cardImage={ objeto.image }
+              cardRare={ objeto.rare }
+              cardTrunfo={ objeto.trunfo }
+            />
+            <button
+              onClick={ delet }
+              type="button"
+              data-testid="delete-button"
+              name={ objeto.name }
+            >
+              Excluir
+            </button>
+          </div>
+        ))}
       </div>
     );
   }
