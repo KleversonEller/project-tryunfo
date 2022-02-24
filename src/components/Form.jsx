@@ -40,6 +40,8 @@ class Form extends React.Component {
             type="number"
             value={ cardAttr1 }
             name="cardAttr1"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="atrib-2">
@@ -51,6 +53,8 @@ class Form extends React.Component {
             type="number"
             value={ cardAttr2 }
             name="cardAttr2"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="atrib-3">
@@ -62,6 +66,8 @@ class Form extends React.Component {
             type="number"
             value={ cardAttr3 }
             name="cardAttr3"
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="url-img">
