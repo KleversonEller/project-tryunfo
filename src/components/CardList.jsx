@@ -78,7 +78,7 @@ class CardList extends React.Component {
             ? objeto
             : objeto.rare === filterRaridade)).map((objeto) => (
             (
-              <div key={ objeto.name }>
+              <div className="card-save" key={ objeto.name }>
                 <Card
                   cardName={ objeto.name }
                   cardDescription={ objeto.description }

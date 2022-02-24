@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import CardList from './components/CardList';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -102,33 +103,37 @@ class App extends React.Component {
         <div>
           <h1>Tryunfo</h1>
         </div>
-        <div>
-          <Form
-            cardName={ state.cardName }
-            cardDescription={ state.cardDescription }
-            cardAttr1={ state.cardAttr1 }
-            cardAttr2={ state.cardAttr2 }
-            cardAttr3={ state.cardAttr3 }
-            cardImage={ state.cardImage }
-            cardRare={ state.cardRare }
-            cardTrunfo={ state.cardTrunfo }
-            hasTrunfo={ this.hasTrunfo() }
-            isSaveButtonDisabled={ state.isSaveButtonDisabled }
-            onInputChange={ this.onInputChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
-          />
-          <Card
-            cardName={ state.cardName }
-            cardDescription={ state.cardDescription }
-            cardAttr1={ state.cardAttr1 }
-            cardAttr2={ state.cardAttr2 }
-            cardAttr3={ state.cardAttr3 }
-            cardImage={ state.cardImage }
-            cardRare={ state.cardRare }
-            cardTrunfo={ state.cardTrunfo }
-          />
-          <CardList list={ state.deck } delet={ this.delet } />
+        <div className="flex-container">
+          <div className="card">
+            <Form
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+              hasTrunfo={ this.hasTrunfo() }
+              isSaveButtonDisabled={ state.isSaveButtonDisabled }
+              onInputChange={ this.onInputChange }
+              onSaveButtonClick={ this.onSaveButtonClick }
+            />
+          </div>
+          <div className="card-previl">
+            <Card
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+            />
+          </div>
         </div>
+        <CardList list={ state.deck } delet={ this.delet } />
       </>
     );
   }
