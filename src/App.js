@@ -34,7 +34,8 @@ class App extends React.Component {
     }, () => this.saveBtn());
   }
 
-  onSaveButtonClick() {
+  onSaveButtonClick(event) {
+    event.preventDefault();
     const { state } = this;
     const card = {
       name: state.cardName,
@@ -55,6 +56,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
   }

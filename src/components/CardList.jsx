@@ -8,23 +8,37 @@ class CardList extends React.Component {
     this.state = {
       filterName: '',
       filterRaridade: 'todas',
+      filterST: false,
+      filterDisable: false,
     };
 
     this.filter = this.filter.bind(this);
+    this.disable = this.disable.bind(this);
   }
 
-  filter({ target: { value, name } }) {
-    this.setState({ [name]: value });
+  filter({ target: { value, name, type, checked } }) {
+    const typo = type === 'checkbox'
+      ? checked
+      : value;
+    this.setState({ [name]: typo }, () => this.disable());
+  }
+
+  disable() {
+    const { filterST } = this.state;
+    return filterST === true
+      ? this.setState({ filterDisable: true })
+      : this.setState({ filterDisable: false });
   }
 
   render() {
     const { list, delet } = this.props;
-    const { filterName, filterRaridade } = this.state;
+    const { filterName, filterRaridade, filterDisable, filterST } = this.state;
     return (
       <div>
         <label htmlFor="filter-name">
           Filtrar nome:
           <input
+            disabled={ filterDisable }
             name="filterName"
             onChange={ this.filter }
             id="filter-name"
@@ -35,6 +49,7 @@ class CardList extends React.Component {
         <label htmlFor="filter-raridade">
           Filtrar raridade:
           <select
+            disabled={ filterDisable }
             name="filterRaridade"
             onChange={ this.filter }
             id="filter-raridade"
@@ -46,7 +61,19 @@ class CardList extends React.Component {
             <option value="muito raro">muito raro</option>
           </select>
         </label>
-        {list.filter((objeto) => objeto.name.includes(filterName))
+        <label htmlFor="filter-sp-trunfo">
+          Filtrar super trunfo:
+          <input
+            onChange={ this.filter }
+            name="filterST"
+            data-testid="trunfo-filter"
+            id="filter-sp-trunfo"
+            type="checkbox"
+          />
+        </label>
+        {list.filter((objeto) => (filterST === true
+          ? objeto.trunfo === filterST
+          : objeto)).filter((objeto) => objeto.name.includes(filterName))
           .filter((objeto) => (filterRaridade === 'todas'
             ? objeto
             : objeto.rare === filterRaridade)).map((objeto) => (
