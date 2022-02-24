@@ -8,16 +8,18 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      deck: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.saveBtn = this.saveBtn.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
   }
 
   onInputChange(event) {
@@ -27,6 +29,32 @@ class App extends React.Component {
     this.setState({
       [event.target.name]: typo,
     }, () => this.saveBtn());
+  }
+
+  onSaveButtonClick() {
+    const { state } = this;
+    const card = {
+      name: state.cardName,
+      description: state.cardDescription,
+      attr1: state.cardAttr1,
+      attr2: state.cardAttr2,
+      attr3: state.cardAttr3,
+      image: state.cardImage,
+      rare: state.cardRare,
+      trunfo: state.cardTrunfo,
+    };
+    this.setState((deckAtual) => ({
+      deck: [...deckAtual.deck, card],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
   }
 
   saveBtn() {
@@ -73,7 +101,7 @@ class App extends React.Component {
             // hasTrunfo={}
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
-            // onSaveButtonClick={ }
+            onSaveButtonClick={ this.onSaveButtonClick }
           />
           <Card
             cardName={ state.cardName }
