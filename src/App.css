@@ -1,6 +1,7 @@
 body {
   margin-left: 50px;
   margin-right: 50px;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -15,4 +16,8 @@ body {
   height: 420px;
   padding: 15px;
   width: 50%;
+}
+
+.espaco {
+  margin-bottom: 30px;
 }

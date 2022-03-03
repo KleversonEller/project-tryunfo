@@ -36,42 +36,46 @@ class CardList extends React.Component {
     const { filterName, filterRaridade, filterDisable, filterST } = this.state;
     return (
       <div>
-        <label htmlFor="filter-name">
-          Filtrar nome:
-          <input
-            disabled={ filterDisable }
-            name="filterName"
-            onChange={ this.filter }
-            id="filter-name"
-            data-testid="name-filter"
-            type="text"
-          />
-        </label>
-        <label htmlFor="filter-raridade">
-          Filtrar raridade:
-          <select
-            disabled={ filterDisable }
-            name="filterRaridade"
-            onChange={ this.filter }
-            id="filter-raridade"
-            data-testid="rare-filter"
-          >
-            <option value="todas">todas</option>
-            <option value="normal">normal</option>
-            <option value="raro">raro</option>
-            <option value="muito raro">muito raro</option>
-          </select>
-        </label>
-        <label htmlFor="filter-sp-trunfo">
-          Filtrar super trunfo:
-          <input
-            onChange={ this.filter }
-            name="filterST"
-            data-testid="trunfo-filter"
-            id="filter-sp-trunfo"
-            type="checkbox"
-          />
-        </label>
+        <hr />
+        <div className="flex-container espaco borda">
+          <label htmlFor="filter-name">
+            {'Filtrar nome:   '}
+            <input
+              disabled={ filterDisable }
+              name="filterName"
+              onChange={ this.filter }
+              id="filter-name"
+              data-testid="name-filter"
+              type="text"
+            />
+          </label>
+          <label htmlFor="filter-raridade">
+            {'Filtrar raridade:   '}
+            <select
+              disabled={ filterDisable }
+              name="filterRaridade"
+              onChange={ this.filter }
+              id="filter-raridade"
+              data-testid="rare-filter"
+            >
+              <option value="todas">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
+          </label>
+          <label htmlFor="filter-sp-trunfo">
+            {'Filtrar super trunfo:   '}
+            <input
+              onChange={ this.filter }
+              name="filterST"
+              data-testid="trunfo-filter"
+              id="filter-sp-trunfo"
+              type="checkbox"
+            />
+          </label>
+        </div>
+        <hr />
         <div className="flex-container">
           {list.filter((objeto) => (filterST === true
             ? objeto.trunfo === filterST

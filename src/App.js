@@ -100,10 +100,11 @@ class App extends React.Component {
     const { state } = this;
     return (
       <>
-        <div>
+        <div className="espaco">
           <h1>Tryunfo</h1>
         </div>
-        <div className="flex-container">
+        <hr />
+        <div className="flex-container espaco">
           <div className="card">
             <Form
               cardName={ state.cardName }
@@ -120,7 +121,7 @@ class App extends React.Component {
               onSaveButtonClick={ this.onSaveButtonClick }
             />
           </div>
-          <div>
+          <div className="espaco">
             <Card
               cardName={ state.cardName }
               cardDescription={ state.cardDescription }
