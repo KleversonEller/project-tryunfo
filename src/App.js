@@ -120,7 +120,7 @@ class App extends React.Component {
               onSaveButtonClick={ this.onSaveButtonClick }
             />
           </div>
-          <div className="card-previl">
+          <div>
             <Card
               cardName={ state.cardName }
               cardDescription={ state.cardDescription }
@@ -130,6 +130,7 @@ class App extends React.Component {
               cardImage={ state.cardImage }
               cardRare={ state.cardRare }
               cardTrunfo={ state.cardTrunfo }
+              clase="card-previl"
             />
           </div>
         </div>

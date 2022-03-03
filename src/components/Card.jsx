@@ -5,29 +5,38 @@ import './Card.css';
 class Card extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo } = this.props;
+      cardImage, cardRare, cardTrunfo, clase } = this.props;
     return (
-      <section>
-        <p data-testid="name-card">
-          {cardName}
-        </p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">
+      <section className={ clase }>
+        <div className="container">
+          <p data-testid="attr1-card">
+            {`AG ${cardAttr1}`}
+          </p>
+          <p className="card-name" data-testid="name-card">
+            {cardName}
+          </p>
+        </div>
+        <img
+          className="imagem"
+          data-testid="image-card"
+          src={ cardImage }
+          alt={ cardName }
+        />
+        <p className="descricao" data-testid="description-card">
           {cardDescription}
-        </p>
-        <p data-testid="attr1-card">
-          {cardAttr1}
-        </p>
-        <p data-testid="attr2-card">
-          {cardAttr2}
-        </p>
-        <p data-testid="attr3-card">
-          {cardAttr3}
         </p>
         <p data-testid="rare-card">
           {cardRare}
         </p>
         {cardTrunfo === true && <p data-testid="trunfo-card"> Super Trunfo </p>}
+        <div className="container atributos">
+          <p data-testid="attr2-card">
+            {`AT ${cardAttr2}`}
+          </p>
+          <p data-testid="attr3-card">
+            {`DF ${cardAttr3}`}
+          </p>
+        </div>
       </section>
     );
   }

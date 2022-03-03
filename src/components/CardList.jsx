@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import './CardList.css';
 
 class CardList extends React.Component {
   constructor() {
@@ -71,34 +72,39 @@ class CardList extends React.Component {
             type="checkbox"
           />
         </label>
-        {list.filter((objeto) => (filterST === true
-          ? objeto.trunfo === filterST
-          : objeto)).filter((objeto) => objeto.name.includes(filterName))
-          .filter((objeto) => (filterRaridade === 'todas'
-            ? objeto
-            : objeto.rare === filterRaridade)).map((objeto) => (
-            (
-              <div className="card-save" key={ objeto.name }>
-                <Card
-                  cardName={ objeto.name }
-                  cardDescription={ objeto.description }
-                  cardAttr1={ objeto.attr1 }
-                  cardAttr2={ objeto.attr2 }
-                  cardAttr3={ objeto.attr3 }
-                  cardImage={ objeto.image }
-                  cardRare={ objeto.rare }
-                  cardTrunfo={ objeto.trunfo }
-                />
-                <button
-                  onClick={ delet }
-                  type="button"
-                  data-testid="delete-button"
-                  name={ objeto.name }
-                >
-                  Excluir
-                </button>
-              </div>)
-          ))}
+        <div className="flex-container">
+          {list.filter((objeto) => (filterST === true
+            ? objeto.trunfo === filterST
+            : objeto)).filter((objeto) => objeto.name.includes(filterName))
+            .filter((objeto) => (filterRaridade === 'todas'
+              ? objeto
+              : objeto.rare === filterRaridade)).map((objeto) => (
+              (
+                <div className="flex-container" key={ objeto.name }>
+                  <div>
+                    <Card
+                      cardName={ objeto.name }
+                      cardDescription={ objeto.description }
+                      cardAttr1={ objeto.attr1 }
+                      cardAttr2={ objeto.attr2 }
+                      cardAttr3={ objeto.attr3 }
+                      cardImage={ objeto.image }
+                      cardRare={ objeto.rare }
+                      cardTrunfo={ objeto.trunfo }
+                      clase="card-save"
+                    />
+                    <button
+                      onClick={ delet }
+                      type="button"
+                      data-testid="delete-button"
+                      name={ objeto.name }
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                </div>)
+            ))}
+        </div>
       </div>
     );
   }
