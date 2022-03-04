@@ -100,8 +100,8 @@ class App extends React.Component {
     const { state } = this;
     return (
       <>
-        <div className="espaco">
-          <h1>Tryunfo</h1>
+        <div className="espaco color-header">
+          <h1>Lord of the rings</h1>
         </div>
         <hr />
         <div className="flex-container espaco">

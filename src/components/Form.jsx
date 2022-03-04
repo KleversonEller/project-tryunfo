@@ -35,7 +35,7 @@ class Form extends React.Component {
           />
         </div>
         <div className="input-group">
-          <span className="input-group-text">1º Atributo:</span>
+          <span className="input-group-text">Agilidade:</span>
           <input
             className="form-control"
             onChange={ onInputChange }
@@ -47,7 +47,7 @@ class Form extends React.Component {
             min="0"
             max="90"
           />
-          <span className="input-group-text">2º Atributo:</span>
+          <span className="input-group-text">Ataque:</span>
           <input
             className="form-control"
             onChange={ onInputChange }
@@ -59,7 +59,7 @@ class Form extends React.Component {
             min="0"
             max="90"
           />
-          <span className="input-group-text">3º Atributo:</span>
+          <span className="input-group-text">Defesa:</span>
           <input
             className="form-control"
             onChange={ onInputChange }
@@ -116,7 +116,7 @@ class Form extends React.Component {
             </label>)}
         <div>
           <button
-            className="btn btn-outline-success"
+            className="btn btn-dark"
             onClick={ onSaveButtonClick }
             data-testid="save-button"
             type="submit"

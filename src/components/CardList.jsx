@@ -37,7 +37,7 @@ class CardList extends React.Component {
     return (
       <div>
         <hr />
-        <div className="flex-container espaco borda">
+        <div className="flex-container espaco color-header">
           <label htmlFor="filter-name">
             {'Filtrar nome:   '}
             <input
@@ -98,6 +98,7 @@ class CardList extends React.Component {
                       clase="card-save"
                     />
                     <button
+                      className="btn btn-danger"
                       onClick={ delet }
                       type="button"
                       data-testid="delete-button"
